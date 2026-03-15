@@ -69,23 +69,19 @@ Install the Neovim plugin:
 return {
   "AlexZeitler/sshimg.nvim",
   config = function()
-    require("sshimg").setup()
+    require("sshimg").setup({
+      port = 9999,
+      host = "127.0.0.1",
+      keymaps = {
+        assets   = "<leader>pa",  -- Save to ./assets/
+        parallel = "<leader>pp",  -- Save to same dir as current file
+      },
+    })
   end,
 }
 ```
 
-## Configuration
-
-```lua
-require("sshimg").setup({
-  port = 9999,
-  host = "127.0.0.1",
-  keymaps = {
-    assets   = "<leader>pa",  -- Save to ./assets/
-    parallel = "<leader>pp",  -- Save to same dir as current file
-  },
-})
-```
+The values shown are the defaults.
 
 ## Usage
 
