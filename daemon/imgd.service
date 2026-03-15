@@ -1,0 +1,11 @@
+[Unit]
+Description=sshimg.nvim local daemon
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/imgd
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

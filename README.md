@@ -24,17 +24,24 @@ them to the remote server via `scp` when triggered from Neovim.
 
 ## Installation
 
-### 1. Start the local daemon
-
-```bash
-python3 daemon/imgd.py
-```
-
-Or install it permanently:
+### 1. Install and start the local daemon
 
 ```bash
 cp daemon/imgd.py ~/.local/bin/imgd
 chmod +x ~/.local/bin/imgd
+```
+
+Start it automatically via systemd:
+
+```bash
+cp daemon/imgd.service ~/.config/systemd/user/imgd.service
+systemctl --user enable --now imgd
+```
+
+Or run it manually:
+
+```bash
+imgd
 ```
 
 ### 2. Connect with a reverse tunnel
