@@ -22,14 +22,18 @@ them to the remote server via `scp` when triggered from Neovim.
 - Neovim
 - Python 3 (for the tunnel client)
 
-## Installation
+## Setup
 
-### 1. Install and start the local daemon
+### Local machine (where you take screenshots)
+
+#### 1. Install the daemon
 
 ```bash
 cp daemon/imgd.py ~/.local/bin/imgd
 chmod +x ~/.local/bin/imgd
 ```
+
+#### 2. Start the daemon
 
 Start it automatically via systemd:
 
@@ -44,7 +48,7 @@ Or run it manually:
 imgd
 ```
 
-### 2. Connect with a reverse tunnel
+#### 3. Connect with a reverse tunnel
 
 ```bash
 ssh -R 9999:localhost:9999 yourserver
@@ -57,7 +61,9 @@ Host yourserver
     RemoteForward 9999 localhost:9999
 ```
 
-### 3. Install the Neovim plugin
+### Remote server (where Neovim runs)
+
+Install the Neovim plugin:
 
 ```lua
 return {
