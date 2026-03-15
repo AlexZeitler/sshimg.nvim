@@ -1,0 +1,1 @@
+# sshimg.nvim
